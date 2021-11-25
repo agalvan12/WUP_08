@@ -1,8 +1,12 @@
 ---
 title: "simpleRegress"
 author: "April Galvan"
-date: "Fall 2021"
-output: html_document
+output: 
+  html_document:
+    number_sections: true
+    toc: true
+    toc_depth: 5
+date: "`r Sys.Date()`"
 ---
 
 ```{r setup, include=FALSE}
@@ -89,3 +93,16 @@ plot(LENGTH~HEADWTH,data=bears)
 abline(simp)
 summary.lm(simp)
 ```
+
+# NECK SQUARED
+
+```{r}
+simp <- lm(LENGTH~I(NECK**2)+NECK,data=bears)
+plot(LENGTH~I(NECK**2)+NECK,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+# The best variable 
+
+The best variable to compare LENGTH was HEADLEN. This is because it gave the greater value for the adjusted R-squared, which was 0.843. After we looked at the model of LENGTH~NECK and compared the orignal model to the new NECK SQUARED model, which did not really change the value of the adjusted R-squared.
