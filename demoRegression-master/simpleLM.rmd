@@ -17,6 +17,8 @@ bears <- read.csv(file="BEARS.csv",header = TRUE)
 
 ## Model LENGTH ~ NECK  this is an example  
 
+#NECK
+
 ```{r}
 simp <- lm(LENGTH~NECK,data=bears)
 plot(LENGTH~NECK,data=bears)
@@ -26,13 +28,15 @@ summary.lm(simp)
 
 ## now predict the length of a bear who has a neck of 17, 22 and 26
 
-
 ```{r}
 new <- data.frame(NECK=c(17,22,26))
 predict(simp,new)
 predict(simp,new,se.fit=TRUE)
 ```
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
+
+
+# WEIGHT
 
 ```{r}
 simp <- lm(LENGTH~WEIGHT,data=bears)
@@ -41,12 +45,16 @@ abline(simp)
 summary.lm(simp)
 ```
 
+# HEADLEN
+
 ```{r}
 simp <- lm(LENGTH~HEADLEN,data=bears)
 plot(LENGTH~HEADLEN,data=bears)
 abline(simp)
 summary.lm(simp)
 ```
+
+# CHEST
 
 ```{r}
 simp <- lm(LENGTH~CHEST,data=bears)
@@ -55,3 +63,29 @@ abline(simp)
 summary.lm(simp)
 ```
 
+# SEX
+
+```{r}
+simp <- lm(LENGTH~SEX,data=bears)
+plot(LENGTH~SEX,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+# AGE
+
+```{r}
+simp <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(simp)
+summary.lm(simp)
+```
+
+# HEADWTH
+
+```{r}
+simp <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(simp)
+summary.lm(simp)
+```
